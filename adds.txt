@@ -1,0 +1,15 @@
+Если возникают проблемы с запуском скипта:
+
+-bash: ./command_substitution.sh: /usr/bin/bash^M: bad interpreter: No such file or directory
+
+при этом вы писали его на Atom в Windows среде.
+
+Проблема в том, что в Windows среде редакторы ситавят возврат корретки ("\r").
+
+Вот как это можно исправить:
+
+$ sed -i -e 's/\r$//' <script file>
+
+или
+
+$ dos2unix <script file>
